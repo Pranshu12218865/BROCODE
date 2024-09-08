@@ -1,0 +1,89 @@
+Sure! Here's an example of a single HTML file that includes both CSS and JavaScript. This example creates a simple quiz with three questions, and when the user submits their answers, it calculates and displays the score.
+
+### HTML (index.html)
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Coding Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #quiz-container {
+            width: 50%;
+            margin: auto;
+            text-align: left;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Basic Coding Quiz</h1>
+    <div id="quiz-container">
+        <div class="question">
+            <p>1. What does HTML stand for?</p>
+            <label><input type="radio" name="q1" value="A"> A) HyperText Markup Language</label><br>
+            <label><input type="radio" name="q1" value="B"> B) HyperText Machine Language</label><br>
+            <label><input type="radio" name="q1" value="C"> C) HyperTool Markup Language</label><br>
+            <label><input type="radio" name="q1" value="D"> D) HyperText and Links Markup Language</label>
+        </div>
+        <div class="question">
+            <p>2. Which HTML tag is used to create a hyperlink?</p>
+            <label><input type="radio" name="q2" value="A"> A) &lt;link&gt;</label><br>
+            <label><input type="radio" name="q2" value="B"> B) &lt;a&gt;</label><br>
+            <label><input type="radio" name="q2" value="C"> C) &lt;href&gt;</label><br>
+            <label><input type="radio" name="q2" value="D"> D) &lt;hyperlink&gt;</label>
+        </div>
+        <div class="question">
+            <p>3. Which attribute is used to provide a unique identifier to an HTML element?</p>
+            <label><input type="radio" name="q3" value="A"> A) class</label><br>
+            <label><input type="radio" name="q3" value="B"> B) id</label><br>
+            <label><input type="radio" name="q3" value="C"> C) name</label><br>
+            <label><input type="radio" name="q3" value="D"> D) key</label>
+        </div>
+        <button onclick="checkAnswers()">Submit</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: 'A',
+                q2: 'B',
+                q3: 'B'
+            };
+
+            let score = 0;
+            for (let question in answers) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answers[question]) {
+                    score++;
+                }
+            }
+
+            document.getElementById('result').textContent = `You scored ${score} out of ${Object.keys(answers).length}`;
+        }
+    </script>
+</body>
+</html>
+

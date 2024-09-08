@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Challenge Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Physics Challenge Game</h1>
+            <p>Select Difficulty Level:</p>
+            <select id="difficulty" onchange="initializeGame()">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+            <button onclick="initializeGame()">Start Game</button>
+            <p id="score">Score: 0</p>
+            <p id="timer">Time Left: 120s</p>
+        </header>
+
+        <div class="question-container">
+            <!-- Question and answers will be dynamically generated here -->
+        </div>
+        <p id="status">Choose a difficulty level to start the game!</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
